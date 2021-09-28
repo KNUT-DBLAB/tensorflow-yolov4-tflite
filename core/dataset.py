@@ -42,7 +42,10 @@ class Dataset(object):
 
     def load_annotations(self):
         with open(self.annot_path, "r") as f:
+            
             txt = f.readlines()
+            # print(txt)
+            # exit()
             if self.dataset_type == "converted_coco":
                 annotations = [
                     line.strip()
@@ -73,6 +76,8 @@ class Dataset(object):
                                 class_num,
                             )
                         annotations.append(image_path + string)
+            # print(annotations)
+            # exit()
 
         np.random.shuffle(annotations)
         return annotations
@@ -364,7 +369,10 @@ class Dataset(object):
                     bbox_xywh_scaled[best_detect, 0:2]
                 ).astype(np.int32)
 
-                label[best_detect][yind, xind, best_anchor, :] = 0
+                try:
+                    label[best_detect][yind, xind, best_anchor, :] = 0
+                except:
+                    continue
                 label[best_detect][yind, xind, best_anchor, 0:4] = bbox_xywh
                 label[best_detect][yind, xind, best_anchor, 4:5] = 1.0
                 label[best_detect][yind, xind, best_anchor, 5:] = smooth_onehot

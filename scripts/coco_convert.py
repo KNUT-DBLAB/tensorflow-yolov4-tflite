@@ -7,8 +7,19 @@ import json
 import sys
 import pickle
 
-flags.DEFINE_string('input', '/Volumes/Elements/data/coco_dataset/coco/annotations/instances_val2017.json', 'path to classes file')
-flags.DEFINE_string('output', 'val2017.pkl', 'path to classes file')
+# flags.DEFINE_string('input', '/Volumes/Elements/data/coco_dataset/coco/annotations/instances_val2017.json', 'path to classes file')
+# flags.DEFINE_string('output', 'val2017.pkl', 'path to classes file')
+
+
+flags.DEFINE_string('input', '/home/dblab/maeng_space/dataset/deetas/annotations/total_train.json', 'path to classes file')
+flags.DEFINE_string('output', 'train_deetas.pkl', 'path to classes file')
+
+# flags.DEFINE_string('input', '/home/dblab/maeng_space/dataset/deetas/annotations/total_test.json', 'path to classes file')
+# flags.DEFINE_string('output', 'test_deetas.pkl', 'path to classes file')
+
+# flags.DEFINE_string('input', '/home/dblab/maeng_space/dataset/deetas/annotations/total_val.json', 'path to classes file')
+# flags.DEFINE_string('output', 'val_deetas.pkl', 'path to classes file')
+
 
 class COCO:
     """
